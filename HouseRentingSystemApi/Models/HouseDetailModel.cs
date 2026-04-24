@@ -18,6 +18,6 @@ namespace HouseRentingSystemApi.Models
 		public string Description { get; set; }
 		public decimal PricePerMonth { get; set; }
 
-		public CategoryViewEnum Category { get; set; }
+		public string Category { get; set; }
 	}
 }
