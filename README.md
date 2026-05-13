@@ -6,7 +6,7 @@ password: "defaultAgPass16",
 email: "defaultag@gmail.com",
 role: "Agent"
 
-**Default Agent**
+**Default Client**
 username: "defaultClient",
 password: "defaultClientPass16",
 email: "defaultcl@gmail.com",
