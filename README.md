@@ -1,6 +1,6 @@
 # HouseRentingAPI
 **credentials**
 username: "defaultAgent",
-password: "defaultAgPass",
+password: "defaultAgPass16",
 email: "defaultag@gmail.com",
 role: "Agent"
