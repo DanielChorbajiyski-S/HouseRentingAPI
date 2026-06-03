@@ -1,5 +1,5 @@
 # HouseRentingAPI
-##credentials
+## credentials
 **Default Agent**
 username: "defaultAgent",
 password: "defaultAgPass16",
