@@ -5,6 +5,7 @@ using HouseRentingSystemApi.MiddleWares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -12,7 +13,7 @@ namespace HouseRentingSystemApi
 {
 	public class Program
 	{
-		public static void Main(string[] args)
+		public static async Task Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
@@ -79,6 +80,12 @@ namespace HouseRentingSystemApi
 			
 			app.UseStopWatch();
 
+			using var scope = app.Services.CreateScope();
+			var data = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+			await data.Database.MigrateAsync();
+			AddRoles(scope);
+			
+
 			// Configure the HTTP request pipeline.
 			if (app.Environment.IsDevelopment())
 			{
@@ -110,6 +117,32 @@ namespace HouseRentingSystemApi
 			app.MapControllers();
 
 			app.Run();
+		}
+
+		public static async Task AddRoles(IServiceScope scope)
+		{
+			using var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+			using var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+			if(!(await roleManager.RoleExistsAsync("Agent")))
+			{
+				var identityRole = new IdentityRole("Agent");
+				await roleManager.CreateAsync(identityRole);
+			}
+
+            if (!(await roleManager.RoleExistsAsync("Client")))
+            {
+				var identityRoleTwo = new IdentityRole("Client");
+                await roleManager.CreateAsync(identityRoleTwo);
+            }
+
+			var defaultAg = await userManager.FindByIdAsync("85ac7242-1ea1-41b3-9638-423dc79e5ac8");
+
+			if (await userManager.IsInRoleAsync(defaultAg, "Agent") == false)
+			{
+				await userManager.AddToRoleAsync(defaultAg, "Agent");
+			}
+			
 		}
 	}
 }

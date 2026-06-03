@@ -41,8 +41,8 @@ namespace HouseRentingSystemApi.Controllers
 
 			if (user == null) 
 			{
-			
-			}
+                return Unauthorized(PopulateResult(400, null, "Invalid email or password"));
+            }
 
 			var result = await userManager.CheckPasswordAsync(user, model.Password);
 			if (result == false)
@@ -50,11 +50,12 @@ namespace HouseRentingSystemApi.Controllers
 				return Unauthorized(PopulateResult(400, null, "Invalid email or password"));
 			}
 
-			var token = GenerateJwtToken(user);
-			return Ok(PopulateResult(200,token,"User logged in successfully"));
+			var token = await GenerateJwtToken(user);
+			return Ok(PopulateResult(200, token,"User logged in successfully"));
 
 
 		}
+
 		[HttpPost("/register")]
 		[Produces(typeof(AuthResult))]
 		public async Task<IActionResult> Resgister([FromBody]AuthModel model)
@@ -81,6 +82,7 @@ namespace HouseRentingSystemApi.Controllers
 				UserName = model.Username
 			};
 			var result = await userManager.CreateAsync(newUser,model.Password);
+			await userManager.AddToRoleAsync(newUser, model.Role);
 
 			if (result.Succeeded)
 			{
@@ -96,7 +98,7 @@ namespace HouseRentingSystemApi.Controllers
 				.ToArray()));
 		}
 
-		private string GenerateJwtToken(AppUser user)
+		private async Task<string> GenerateJwtToken(AppUser user)
 		{
 			var jwtSection = config.GetSection("Jwt");
 			var key = jwtSection["Key"]!;
@@ -107,7 +109,8 @@ namespace HouseRentingSystemApi.Controllers
 				new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName!),
 				new Claim(JwtRegisteredClaimNames.Email, user.Email ?? ""),
 				new Claim(ClaimTypes.NameIdentifier, user.Id),
-				new Claim(ClaimTypes.Name, user.UserName!)
+				new Claim(ClaimTypes.Name, user.UserName!),
+				new Claim(ClaimTypes.Role, (await userManager.GetRolesAsync(user))[0])
 			};
 
 			var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static HouseRentingSystemApi.Data.DataConstants.DataConstants.House;
 
@@ -23,6 +24,7 @@ namespace HouseRentingSystemApi.Data.Entities
 
 		public string ImageUrl { get; set; } = null!;
 
+		[Precision(8, 2)]
 		public decimal PricePerMonth { get; set; }
 
 		public Category Category { get; set; }

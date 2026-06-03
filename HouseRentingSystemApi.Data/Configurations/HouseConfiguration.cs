@@ -29,7 +29,7 @@ namespace HouseRentingSystemApi.Data.Configurations
 					ImageUrl = "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
 					PricePerMonth = 950,
 					CategoryId = 1,
-					UserId = "df26734f-abc3-4aba-b5de-bea3da51c483"
+					UserId = "85ac7242-1ea1-41b3-9638-423dc79e5ac8"
 				},
 				new House
 				{
@@ -40,7 +40,7 @@ namespace HouseRentingSystemApi.Data.Configurations
 					ImageUrl = "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
 					PricePerMonth = 600,
 					CategoryId = 2,
-					UserId = "df26734f-abc3-4aba-b5de-bea3da51c483"
+					UserId = "85ac7242-1ea1-41b3-9638-423dc79e5ac8"
 				},
 				new House
 				{
@@ -51,7 +51,7 @@ namespace HouseRentingSystemApi.Data.Configurations
 					ImageUrl = "https://images.unsplash.com/photo-1507089947368-19c1da9775ae",
 					PricePerMonth = 1800,
 					CategoryId = 3,
-					UserId = "df26734f-abc3-4aba-b5de-bea3da51c483"
+					UserId = "85ac7242-1ea1-41b3-9638-423dc79e5ac8"
 				},
 				new House
 				{
@@ -62,7 +62,7 @@ namespace HouseRentingSystemApi.Data.Configurations
 					ImageUrl = "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
 					PricePerMonth = 1200,
 					CategoryId = 1,
-					UserId = "df26734f-abc3-4aba-b5de-bea3da51c483"
+					UserId = "85ac7242-1ea1-41b3-9638-423dc79e5ac8"
 				},
 				new House
 				{
@@ -73,7 +73,7 @@ namespace HouseRentingSystemApi.Data.Configurations
 					ImageUrl = "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
 					PricePerMonth = 800,
 					CategoryId = 2,
-					UserId = "df26734f-abc3-4aba-b5de-bea3da51c483"
+					UserId = "85ac7242-1ea1-41b3-9638-423dc79e5ac8"
 				},
 				new House
 				{
@@ -84,7 +84,7 @@ namespace HouseRentingSystemApi.Data.Configurations
 					ImageUrl = "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
 					PricePerMonth = 1100,
 					CategoryId = 3,
-					UserId = "df26734f-abc3-4aba-b5de-bea3da51c483"
+					UserId = "85ac7242-1ea1-41b3-9638-423dc79e5ac8"
 				},
 				new House
 				{
@@ -95,7 +95,7 @@ namespace HouseRentingSystemApi.Data.Configurations
 					ImageUrl = "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5",
 					PricePerMonth = 550,
 					CategoryId = 2,
-					UserId = "df26734f-abc3-4aba-b5de-bea3da51c483"
+					UserId = "85ac7242-1ea1-41b3-9638-423dc79e5ac8"
 				},
 				new House
 				{
@@ -106,7 +106,7 @@ namespace HouseRentingSystemApi.Data.Configurations
 					ImageUrl = "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
 					PricePerMonth = 1500,
 					CategoryId = 1,
-					UserId = "df26734f-abc3-4aba-b5de-bea3da51c483"
+					UserId = "85ac7242-1ea1-41b3-9638-423dc79e5ac8"
 				},
 				new House
 				{
@@ -117,7 +117,7 @@ namespace HouseRentingSystemApi.Data.Configurations
 					ImageUrl = "https://images.unsplash.com/photo-1484154218962-a197022b5858",
 					PricePerMonth = 1000,
 					CategoryId = 3,
-					UserId = "df26734f-abc3-4aba-b5de-bea3da51c483"
+					UserId = "85ac7242-1ea1-41b3-9638-423dc79e5ac8"
 				},
 				new House
 				{
@@ -128,7 +128,7 @@ namespace HouseRentingSystemApi.Data.Configurations
 					ImageUrl = "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
 					PricePerMonth = 400,
 					CategoryId = 2,
-					UserId = "df26734f-abc3-4aba-b5de-bea3da51c483"
+					UserId = "85ac7242-1ea1-41b3-9638-423dc79e5ac8"
 				}
 			};
 
